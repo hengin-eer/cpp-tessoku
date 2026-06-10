@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
   int N, Q;
-  int A[10009], L[100009], R[100009], Sum[100009];
+  int A[100009], L[100009], R[100009], Sum[100009];
 
   // データの入力
   cin >> N >> Q;
@@ -20,10 +20,13 @@ int main() {
 
   // 累積和を用いた出力
   for (int i = 1; i <= Q; i++) {
-    int left = L[i - 1];
+    // NOTE:
+    // 指定日の前日ではなく、指定日の累積和配列の1つ前の要素を指定する必要がある
+    // int left = L[i - 1];
+    int left = L[i] - 1;
     int right = R[i];
-    // NOTE: endlを忘れない
-    cout << Sum[right] - Sum[left] << endl;
+    // NOTE: endl ではTLEの可能性があるので、無難に"\n"を使う
+    cout << Sum[right] - Sum[left] << "\n";
   }
 
   return 0;
