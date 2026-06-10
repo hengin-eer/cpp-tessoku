@@ -8,10 +8,10 @@ int main() {
 
   for (int x = 1; x <= N; x++) {
     for (int y = 1; y <= N; y++) {
-      for (int z = 1; z <= N; z++) {
-        if (x + y + z == K)
-          Count++;
-      }
+      // 2変数のみループを回し、条件式から求まるzが制約を満たしているかチェックする
+      int z = K - (x + y);
+      if (z >= 1 && z <= N)
+        Count++;
     }
   }
   cout << Count << endl;
