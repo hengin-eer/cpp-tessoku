@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-  int H, W, Q;
-  int X[1509][1509];
-  int Sum[1509][1509];
-  int A[100009], B[100009], C[100009], D[100009];
-  int Ans[100009];
+int H, W, Q;
+int X[1509][1509];
+int Sum[1509][1509];
+int A[100009], B[100009], C[100009], D[100009];
+int Ans[100009];
 
+int main() {
   cin >> H >> W;
   for (int h = 1; h <= H; h++)
     for (int w = 1; w <= W; w++)
