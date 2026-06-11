@@ -23,7 +23,8 @@ int main() {
   Sum[1][0] = 0;
   for (int h = 1; h <= H; h++)
     for (int w = 1; w <= W; w++)
-      Sum[h][w] = Sum[h - 1][w - 1] + X[h][w];
+      // NOTE: 重複部分を除きながら累積和を求める
+      Sum[h][w] = Sum[h - 1][w] + Sum[h][w - 1] - Sum[h - 1][w - 1] + X[h][w];
 
   for (int q = 1; q <= Q; q++)
     Ans[q] = Sum[C[q]][D[q]] - Sum[A[q] - 1][D[q]] - Sum[C[q]][B[q] - 1] +
