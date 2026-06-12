@@ -3,7 +3,7 @@ using namespace std;
 
 int H, W, N;
 int A[100009], B[100009], C[100009], D[100009];
-int Sum[100009][100009], Answer[100009][100009];
+int Sum[1509][1509], Answer[1509][1509];
 
 int main() {
   cin >> H >> W >> N;
@@ -31,12 +31,12 @@ int main() {
 
   for (int h = 1; h <= H; h++)
     for (int w = 1; w <= W; w++)
-      Answer[w][h] = Answer[w - 1][h] + Sum[w][h];
+      Answer[w][h] = Answer[w - 1][h] + Answer[w][h];
 
   // output
-  for (int w = 1; w <= W; w++) {
-    for (int h = 1; h <= H; h++) {
-      if (h >= 2)
+  for (int h = 1; h <= H; h++) {
+    for (int w = 1; w <= W; w++) {
+      if (w >= 2)
         cout << " ";
       cout << Answer[w][h];
     }
